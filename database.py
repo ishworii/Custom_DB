@@ -8,35 +8,50 @@ class Table:
         self.path = os.path.join(BASE_DIR,database_name,table_name+".json")
         self.name = table_name
         self.schema = schema
+        self.id = None
+        self.load_id()
 
-    def load_data(self):
-        self.create_if_not_exists()
+    def load_id(self):
+        if not os.path.exists(self.path):
+            self.id = 1
+            return
         with open(self.path,"r") as f:
             data = json.load(f)
-        print(type(data))
+        self.id = data[-1]['id'] + 1
+
+
+    def load_data(self):
+        if not os.path.exists(self.path):
+            return []
+        with open(self.path,"r") as f:
+            data = json.load(f)
         return data
 
-    def create_if_not_exists(self):
-        if not os.path.exists(self.path):
-            with open(self.path,"w") as f:
-                json.dump([{}],f)
-
     def validate_row(self,*args):
-        pass
+        if len(args) != len(self.schema.keys()):
+            print("Invalid number of arguments")
+            return False
+        for col_type,each_col in zip(self.schema.values(),args):
+            if not isinstance(each_col,eval(col_type)):
+                print("Invalid column type")
+                return False
+        return True
 
     def save_data(self,data):
         with open(self.path,"w") as file:
-            json.dump(data,file)
+            json.dump(data,file,indent=4)
 
     def add_row(self,*args):
-        self.validate_row(*args)
+        assert self.validate_row(*args) == True
         data = self.load_data()
         row = {k:v for k,v in zip(self.schema.keys(),args)}
+        row['id'] = self.id
+        self.id += 1
         if len(data) == 0:
             data = [row]
         else:
             data.append(row)
-        self.save_data(row)
+        self.save_data(data)
 
 
     def __str__(self):
