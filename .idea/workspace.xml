@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d14f29a-da76-4dbf-97e3-dcccefa18928" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.data/test_db/student.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.data/test_db/student.json" beforeDir="false" afterPath="$PROJECT_DIR$/.data/test_db/student.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -101,7 +100,7 @@
       <workItem from="1735023715939" duration="177000" />
       <workItem from="1735023919961" duration="54000" />
       <workItem from="1735023976933" duration="463000" />
-      <workItem from="1735024738861" duration="2466000" />
+      <workItem from="1735024738861" duration="4017000" />
     </task>
     <servers />
   </component>

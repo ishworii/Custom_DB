@@ -53,6 +53,27 @@ class Table:
             data.append(row)
         self.save_data(data)
 
+    def update_row(self,pk,*args):
+        print("update row",pk,args)
+        assert self.validate_row(*args) == True
+        if pk > self.id:
+            print("Invalid ID")
+            return
+        data = self.load_data()
+        for index,each_row in enumerate(data):
+            if pk == each_row['id']:
+                print("update row",pk,each_row)
+                each_row = {k:v for k,v in zip(each_row.keys(),args)}
+                each_row['id'] = pk
+                data[index] = each_row
+                break
+        self.save_data(data)
+
+    def delete_row(self,pk):
+        assert pk <= self.id
+        data = self.load_data()
+        data = [d for d in data if d['id'] != pk]
+        self.save_data(data)
 
     def __str__(self):
         return ""
