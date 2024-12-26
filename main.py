@@ -1,22 +1,49 @@
-import database
+import query
 
+
+# def main():
+#     # First create and populate the table
+#     query.Query("CREATE DATABASE TestDB;").execute()
+#     query.Query("USE TestDB;").execute()
+#
+#     # Create table
+#     create_query = """
+#     CREATE TABLE Persons (
+#         PersonID INT,
+#         LastName VARCHAR(255),
+#         FirstName VARCHAR(255),
+#         Address TEXT,
+#         Active BOOLEAN
+#     );
+#     """
+#     tb = query.Query(create_query).execute()
+#
+#     # Add initial data
+#     tb.add_row(1, "Doe", "John", "123 Main St", True)
+#     tb.add_row(1, "Khanal", "Ishwor", "25 mirage", True)
+#     tb.add_row(1, "Khanal", "Sejal", "Pharsatikar", True)
+#
+#     # Update the record
+#     update_query = """
+#     UPDATE Persons
+#     SET LastName = "Smith", FirstName = "Jane"
+#     WHERE id = 1;
+#     """
+#     query.Query(update_query).execute()
+#
+#     # View the results
+#     query.Query("SELECT * FROM Persons").execute()
 
 def main():
-    db = database.Database("test_db")
-    schema = {
-        "name": "str",
-        "age": "int",
-        "sex": "str",
-        "date_of_birth": "str",
-    }
-    student = db.create_table("student", schema=schema)
-    # student.add_row("Ishwor", 21, "male", "1998-05-29")
-    # student.add_row("Sejal", 10, "female", "2012-03-21")
-    # student.add_row("Luna", 14, "female","2010-12-24")
-    student.update_row(1,"Luna",17,"female","2010-12-24")
-    student.delete_row(2)
+    query.Query("USE TestDB;").execute()
+    query.Query("SELECT * FROM Persons").execute()
 
-    # student.add_row()
+    # Delete a record
+    delete_query = "DELETE FROM Persons WHERE id = 1;"
+    query.Query(delete_query).execute()
+
+    # Verify the deletion
+    query.Query("SELECT * FROM Persons").execute()
 
 
 if __name__ == "__main__":

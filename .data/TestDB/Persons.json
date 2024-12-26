@@ -1,0 +1,26 @@
+[
+    {
+        "PersonID": 1,
+        "LastName": "Doe",
+        "FirstName": "John",
+        "Address": "123 Main St",
+        "Active": true,
+        "id": 2
+    },
+    {
+        "PersonID": 1,
+        "LastName": "Khanal",
+        "FirstName": "Ishwor",
+        "Address": "25 mirage",
+        "Active": true,
+        "id": 3
+    },
+    {
+        "PersonID": 1,
+        "LastName": "Khanal",
+        "FirstName": "Sejal",
+        "Address": "Pharsatikar",
+        "Active": true,
+        "id": 4
+    }
+]
